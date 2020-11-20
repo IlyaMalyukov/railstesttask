@@ -1,12 +1,5 @@
-<% provide(:title, "Главная") %>
-<!DOCTYPE html>
-<html>
-<head>
-<title><%= yield(:title) %> | Rails Test Task</title>
-</head>
-<body>
+<div class="center jumbotron">
+<h1>Главная</h1>
 
-<h1>Главная страница</h1>
-
-</body>
-</html>
+<%= link_to "Регистрация", signup_path, class: "btn btn-lg btn-primary" %>
+</div>

@@ -1,0 +1,14 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+  <%= link_to "Rails Test Task", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Главная", root_path %></li>
+        <li><%= link_to "Работодатели", clients_path %></li>
+        <li><%= link_to "Исполнители", workers_path %></li>
+        <li><%= link_to "Объявления", ads_path %></li>
+        <li><%= link_to "Войти", '#' %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
