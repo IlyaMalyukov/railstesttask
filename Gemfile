@@ -11,6 +11,7 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootstrap-sass'
+gem 'bcrypt'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
