@@ -1,2 +1,50 @@
 <% provide(:title, 'Регистрация') %>
 <h1>Регистрация</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+     <%#= render 'shared/error_messages' НЕ РАБОТАЕТ! %>
+
+      <%= f.label :Логин %>
+      <%= f.text_field :login, class: 'form-control' %>
+
+      <%= f.label :fullname, "Полное имя" %>
+      <%= f.text_field :fullname, class: 'form-control' %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :Адрес %>
+      <%= f.text_field :address, class: 'form-control' %>
+
+      <%= f.label :Город %>
+      <%= f.text_field :city, class: 'form-control' %>
+
+      <%= f.label :Регион %>
+      <%= f.text_field :state, class: 'form-control' %>
+
+      <%= f.label :Страна %>
+      <%= f.text_field :country, class: 'form-control' %>
+
+      <%= f.label :zip, "Почтовый индекс" %>
+      <%= f.text_field :zip, class: 'form-control' %>
+
+      <%= f.label :role, "Статус" %>
+      <div class = form__role>
+      <%= f.radio_button :role, "client" %>
+      <%= f.label :role_client, "Заказчик" %>
+      <%= f.radio_button :role, "worker" %>
+      <%= f.label :role_worker, "Исполнитель" %>
+      </div>
+
+      <%= f.label :Пароль %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Подтвердите пароль" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "Создать аккаунт", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

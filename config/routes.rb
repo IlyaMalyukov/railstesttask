@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get 'workers' => 'static_pages#workers'
   get 'ads' => 'static_pages#ads'
   get 'signup' => 'users#new'
+  resources :users
 end
