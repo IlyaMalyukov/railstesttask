@@ -7,7 +7,16 @@
         <li><%= link_to "Заказчики", clients_path %></li>
         <li><%= link_to "Исполнители", workers_path %></li>
         <li><%= link_to "Объявления", ads_path %></li>
-        <li><%= link_to "Войти", signup_path %></li>
+
+        <% if logged_in? %>
+          <li><%= link_to "Профиль", current_user %></li>
+          <li><%= link_to "Настройки", '#' %></li>
+          <li>
+            <%= link_to "Выйти", logout_path, method: "delete" %>
+          </li>
+        <% else %>
+          <li><%= link_to "Войти", login_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>
