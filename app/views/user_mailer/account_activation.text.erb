@@ -1,0 +1,3 @@
+Hi <%= @user.fullname %>,
+Добро пожаловать на Rails Test Task! Кликните по ссылке для активации аккаунта:
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>

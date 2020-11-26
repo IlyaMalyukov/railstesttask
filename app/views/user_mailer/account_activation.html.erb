@@ -1,0 +1,7 @@
+<h1>Rails Test Task</h1>
+<p>Привет, <%= @user.fullname %>,</p>
+<p>
+Добро пожаловать на Rails Test Task! Кликните по ссылке для активации аккаунта:
+</p>
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
+email: @user.email) %>

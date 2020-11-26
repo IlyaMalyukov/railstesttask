@@ -1,7 +1,8 @@
 class User < ApplicationRecord
 
-  attr_accessor :remember_token
-  before_save { self.email = email.downcase }
+  attr_accessor :remember_token, :activation_token
+  before_save :downcase_email
+  before_create :create_activation_digest
   validates :login, presence: true
   validates :fullname, presence: true
 
@@ -50,4 +51,26 @@ class User < ApplicationRecord
   validates :zip, presence: true
   validates :role, presence: true
 
+    # Активирует учетную запись.
+    def activate
+      update_attribute(:activated, true)
+      update_attribute(:activated_at, Time.zone.now)
+    end
+  
+    # Посылает письмо со ссылкой на страницу активации.
+    def send_activation_email
+      UserMailer.account_activation(self).deliver_now
+    end
+
+  private
+  # Преобразует адрес электронной почты в нижний регистр.
+  def downcase_email
+    self.email = email.downcase
+  end
+
+  # Создает и присваивает токен активации и его дайджест.
+  def create_activation_digest
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest(activation_token)
+  end
 end
