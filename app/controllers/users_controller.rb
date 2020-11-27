@@ -18,8 +18,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      @user.send_activation_email
-      flash[:info] = "Пожалуйста, проверьте вашу электронную почту для активации аккаунта."
+      log_in @user
+     # @user.send_activation_email (log_in @user нужно удалить)
+     # flash[:info] = "Пожалуйста, проверьте вашу электронную почту для активации аккаунта."
       redirect_to root_url
     else
       render 'new'
