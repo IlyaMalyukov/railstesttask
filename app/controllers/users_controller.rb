@@ -8,7 +8,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @ad = current_user.ads.build if logged_in?
     @user = User.find(params[:id])
+    @ads = @user.ads.paginate(page: params[:page])
   end
 
   def new
@@ -56,15 +58,6 @@ class UsersController < ApplicationController
   end
 
   # Предварительные фильтры
-
-  # Подтверждает вход пользователя
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = "Пожалуйста, выполните вход!"
-      redirect_to login_url
-    end
-  end
 
   # Подтверждает права пользователя.
   def correct_user

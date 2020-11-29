@@ -2,9 +2,26 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1>
-        <%= @user.fullname %>
-        </h1>
+    <%= render 'shared/user_info' %>
     </section>
   </aside>
+
+  <div class="row">
+  <aside class="col-md-4">
+    <section class="ad_form">
+      <%= render 'shared/ad_form' %>
+    </section>
+  </aside>
+</div>
+
+  <div class="col-md-8">
+    <% if @user.ads.any? %>
+      <h3>Объявления (<%= @user.ads.count %>)</h3>
+      <ol class="ads">
+        <%= render @ads %>
+      </ol>
+      <%= will_paginate @ads %>
+    <% end %>
+  </div>
+
 </div>
