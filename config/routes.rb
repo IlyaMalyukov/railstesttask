@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tasks
   get 'password_resets/new'
   get 'password_resets/edit'
   get 'sessions/new'

@@ -1,7 +1,0 @@
-<li id="ad-<%= ad.id %>">
-  <span class="user"><%= link_to ad.user.fullname, ad.user %></span>
-  <span class="content"><%= ad.content %></span>
-  <span class="timestamp">
-    Опубликовано <%= time_ago_in_words(ad.created_at) %> назад .
-  </span>
-</li>

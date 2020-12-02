@@ -164,6 +164,10 @@ input {
   }
 }
 
+.field {
+  height: 100px;
+}
+
 .field_with_errors {
   @extend .has-error;
   .form-control {

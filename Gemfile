@@ -15,6 +15,7 @@ gem 'bcrypt'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'sendgrid-ruby'
+gem 'simple_form'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
