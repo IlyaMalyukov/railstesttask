@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "./actiontext.scss";
 
 /* примеси, переменные и т.д.*/
 
@@ -187,6 +188,10 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+trix-editor.form-control {
+  height: auto;
 }
 
 /* Список пользователей */

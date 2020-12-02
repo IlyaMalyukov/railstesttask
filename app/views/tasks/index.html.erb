@@ -16,6 +16,7 @@
       <tr>
         <td><%= task.title %></td>
         <td><%= task.content %></td>
+        <td><%= task.created_at %></td>
         <td><%= link_to 'Просмотр', task %></td>
         <td><%= link_to 'Редактировать', edit_task_path(task) %></td>
         <td><%= link_to 'Удалить', task, method: :delete, data: { confirm: 'Удалить?' } %></td>
