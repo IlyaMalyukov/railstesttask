@@ -8,6 +8,9 @@
 <p>
   <strong>Content:</strong>
   <%= @task.content %>
+  <br>
+  <strong><%= current_user.fullname %></strong>
+  <%= @task.created_at %>
 </p>
 
 <%= link_to 'Редактировать', edit_task_path(@task) %> |
