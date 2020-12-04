@@ -16,14 +16,16 @@
       <tr>
         <td><%= task.title %></td>
         <td>
-        <%= task.content %>
-        <br>
-        <strong> <%= current_user.fullname %> </strong>
-        <%= task.created_at %>
+          <%= task.content %>
+          <br>
+          <%= task.created_at %>
         </td>
         <td><%= link_to 'Просмотр', task %></td>
-        <td><%= link_to 'Редактировать', edit_task_path(task) %></td>
-        <td><%= link_to 'Удалить', task, method: :delete, data: { confirm: 'Удалить?' } %></td>
+
+        <% if current_user %>
+          <td><%= link_to 'Редактировать', edit_task_path(task) %></td>
+          <td><%= link_to 'Удалить', task, method: :delete, data: { confirm: 'Удалить?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -31,4 +33,6 @@
 
 <br>
 
-<%= link_to 'Создать', new_task_path, class:"btn btn-success" %>
+<% if current_user %>
+  <%= link_to 'Создать', new_task_path, class:"btn btn-success" %>
+<% end %>

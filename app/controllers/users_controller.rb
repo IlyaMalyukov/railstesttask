@@ -8,9 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @ad = current_user.ads.build if logged_in?
     @user = User.find(params[:id])
-    @ads = @user.ads.paginate(page: params[:page])
   end
 
   def new

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'password_resets/edit'
   get 'sessions/new'
   get 'users/new'
-  root 'static_pages#home'
+  root 'tasks#index'
   get 'help' => 'static_pages#help'
   get 'ads' => 'static_pages#ads'
   get 'signup' => 'users#new'
