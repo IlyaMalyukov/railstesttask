@@ -6,13 +6,16 @@
 </p>
 
 <p>
-  <strong>Описание:</strong>
+  <strong>Описание:</strong> 
   <%= @task.content %>
   <br>
+  <%= @task.user.email %> |
   <%= @task.created_at %>
 </p>
 
 <% if current_user %>
   <%= link_to 'Редактировать', edit_task_path(@task) %> |
+  <%= link_to "Удалить", @task, method: :delete,
+  data: { confirm: "Удалить?" } %> |
 <% end %>
 <%= link_to 'Назад', tasks_path %>
