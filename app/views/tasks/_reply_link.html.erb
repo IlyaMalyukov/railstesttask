@@ -1,2 +1,2 @@
-- vote_text = curent_user&.voted_for?(@task) ? "Отменить отклик" : "Откликнуться"
+<% vote_text = curent_user&.voted_for?(@task) ? "Отменить отклик" : "Откликнуться" %>
 <%= link_to vote_text, reply_task_path(@task), method: :put, remote: :true %>
