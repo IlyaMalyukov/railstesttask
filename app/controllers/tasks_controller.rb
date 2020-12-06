@@ -17,6 +17,11 @@ class TasksController < ApplicationController
   end
 
   def edit
+    if @task.user_id == current_user.id
+      #OK
+    else
+      redirect_to root_path, notice: 'Вы не автор этого задания!'
+    end
   end
 
   def create
@@ -35,6 +40,7 @@ class TasksController < ApplicationController
   end
 
   def update
+    if @task.user_id == current_user.id
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to @task, notice: 'Задание обновлено!' }
@@ -44,13 +50,20 @@ class TasksController < ApplicationController
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
+    else
+      redirect_to root_path, notice: 'Вы не автор этого задания!'
+    end
   end
 
   def destroy
+    if @task.user_id == current_user.id
     @task.destroy
     respond_to do |format|
       format.html { redirect_to tasks_url, notice: 'Задание удалено!' }
       format.json { head :no_content }
+    end
+    else
+      redirect_to root_path, notice: 'Вы не автор этого задания!'
     end
   end
 

@@ -18,6 +18,7 @@
         <td>
           <%= task.content %>
           <br>
+          <%= task.user.fullname %> |
           <%= task.created_at %>
         </td>
         <td><%= link_to 'Просмотр', task %></td>
