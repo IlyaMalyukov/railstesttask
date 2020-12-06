@@ -22,3 +22,27 @@
   data: { confirm: "Удалить?" } %> |
 <% end %>
 <%= link_to 'Назад', tasks_path %>
+
+<hr>
+  <h2>Комментарии</h2>
+    <% @task.comments.each do |comment| %>
+      <p>
+        <strong> <%= comment.username %> </strong>
+        <%= comment.body %>
+      </p>
+    <% end %>
+<hr>
+
+  <%= form_for([@task, @task.comments.build]) do |f|  %>
+
+    <div class="form-inputs">
+      <p>Пользователь</p>
+      <br>
+      <p> <%= f.text_field(:username) %> </p>
+      <p> <%= f.text_area(:body) %> <p>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit("Отправить") %>
+    </div>
+  <% end %>

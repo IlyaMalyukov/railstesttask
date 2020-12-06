@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :tasks do
+    resources :comments
     member do
       put "reply", to: "tasks#reply"
     end
