@@ -11,6 +11,8 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'
 gem 'bcrypt'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
@@ -19,6 +21,7 @@ gem 'simple_form'
 gem 'image_processing'
 gem 'mini_magick'
 gem 'acts_as_votable'
+gem 'haml-rails', '~> 2.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
