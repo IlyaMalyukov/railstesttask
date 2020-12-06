@@ -5,6 +5,7 @@ class User < ApplicationRecord
   before_create :create_activation_digest
   validates :login, presence: true
   validates :fullname, presence: true
+  acts_as_voter
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true,

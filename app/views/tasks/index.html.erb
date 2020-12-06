@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+
 <h1>Объявления</h1>
 
 <table class="table">
@@ -20,7 +21,11 @@
           <br>
           <%= task.user.fullname %> |
           <%= task.created_at %>
+          <br>
+          <%= render 'tasks/replies', task: task %>
+          <%#= render 'tasks/reply_link', task: task %>
         </td>
+        
         <td><%= link_to 'Просмотр', task %></td>
 
         <% if current_user %>

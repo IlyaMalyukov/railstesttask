@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :tasks
+  resources :tasks do
+    member do
+      put "reply", to: "tasks#reply"
+    end
+  end
   get 'password_resets/new'
   get 'password_resets/edit'
   get 'sessions/new'

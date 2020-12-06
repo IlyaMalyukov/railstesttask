@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :reply]
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :correct_user, only: :destroy
 
@@ -10,6 +10,14 @@ class TasksController < ApplicationController
 
 
   def show
+  end
+
+  def reply
+    if current_user.voted_for? @task
+      @task.no_reply_by current_user
+    else
+      @task.reply_by current_user
+    end
   end
 
   def new

@@ -18,6 +18,7 @@ gem 'sendgrid-ruby'
 gem 'simple_form'
 gem 'image_processing'
 gem 'mini_magick'
+gem 'acts_as_votable'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
