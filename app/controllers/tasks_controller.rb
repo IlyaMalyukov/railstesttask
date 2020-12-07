@@ -13,10 +13,15 @@ class TasksController < ApplicationController
   end
 
   def reply
-    if current_user.voted_for? @task
-      @task.no_reply_by current_user
-    else
-      @task.reply_by current_user
+    if current_user.voted_up_on? @task
+      @task.downvote_by current_user
+    elsif current_user.voted_down_on? @task
+      @task.upvote_by current_user
+    else #not voted
+      @task.upvote_by current_user
+    end
+    respond_to do |format|
+      format.js
     end
   end
 

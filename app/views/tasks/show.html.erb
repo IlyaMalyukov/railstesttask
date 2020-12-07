@@ -12,8 +12,8 @@
   <%= @task.user.fullname %> |
   <%= @task.created_at %>
   <br>
-  <%= render 'tasks/replies', task: @task %>
-  <%#= render 'tasks/reply_link', task: @task %>
+  <strong><%= render 'tasks/replies', task: @task %></strong>
+  <%= render 'tasks/reply_link', task: @task %>
 </p>
 
 <% if current_user %>
@@ -39,6 +39,8 @@
       <p>Пользователь</p>
       <br>
       <p> <%= f.text_field(:username) %> </p>
+      <p>Комментарий</p>
+      <br>
       <p> <%= f.text_area(:body) %> <p>
     </div>
 
