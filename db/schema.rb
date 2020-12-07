@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2020_12_06_190853) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
+    t.bigint "user_id", null: true
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
