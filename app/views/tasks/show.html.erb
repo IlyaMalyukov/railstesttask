@@ -33,14 +33,14 @@
     <% end %>
 <hr>
 
+  <h4>Написать комментарий</h4>
+
   <%= form_for([@task, @task.comments.build]) do |f|  %>
 
     <div class="form-inputs">
-      <p>Пользователь</p>
-      <br>
+      <p>Имя</p>
       <p> <%= f.text_field(:username) %> </p>
       <p>Комментарий</p>
-      <br>
       <p> <%= f.text_area(:body) %> <p>
     </div>
 
