@@ -13,16 +13,19 @@
   <%= @task.created_at %>
   <br>
   <strong><%= render 'tasks/replies', task: @task %></strong>
-  <%= render 'tasks/reply_link', task: @task %>
+  <% if current_user %>
+  <%=render 'tasks/reply_link', task: @task %>
+  <% end %>
 </p>
 
-<% if current_user %>
+<% if @task.user == current_user %>
   <%= link_to 'Редактировать', edit_task_path(@task) %> |
   <%= link_to "Удалить", @task, method: :delete,
   data: { confirm: "Удалить?" } %> |
 <% end %>
 <%= link_to 'Назад', tasks_path %>
 
+<% if current_user %>
 <hr>
   <h2>Комментарии</h2>
     <% @task.comments.each do |comment| %>
@@ -48,3 +51,4 @@
       <%= f.submit("Отправить") %>
     </div>
   <% end %>
+<% end %>
