@@ -1,54 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Заголовок:</strong>
-  <%= @task.title %>
-</p>
-
-<p>
-  <strong>Описание:</strong> 
-  <%= @task.content %>
-  <br>
-  <%= @task.user.fullname %> |
-  <%= @task.created_at %>
-  <br>
-  <strong><%= render 'tasks/replies', task: @task %></strong>
-  <% if current_user %>
-  <%=render 'tasks/reply_link', task: @task %>
-  <% end %>
-</p>
+  <strong> <%= @task.title %> </strong>
+  
+<div class="card">
+    <%= @task.content %>
+    <br>
+    <%= @task.user.fullname %> |
+    <%= @task.created_at %>
+    <hr>
+    <strong><%= render 'tasks/replies', task: @task %></strong>
+    <% if current_user %>
+    <%=render 'tasks/reply_link', task: @task %>
+    <% end %>
+</div>  
 
 <% if @task.user == current_user %>
-  <%= link_to 'Редактировать', edit_task_path(@task) %> |
-  <%= link_to "Удалить", @task, method: :delete,
-  data: { confirm: "Удалить?" } %> |
+    <%= link_to 'Редактировать', edit_task_path(@task), class: "btn btn-link btn-sm" %>
+    <%= link_to "Удалить", @task, method: :delete,
+    data: { confirm: "Удалить?" }, class: "btn btn-link btn-sm" %> 
+    <%= link_to 'Назад', tasks_path, class: "btn btn-link btn-sm" %>
 <% end %>
-<%= link_to 'Назад', tasks_path %>
 
 <% if current_user %>
-<hr>
-  <h2>Комментарии</h2>
-    <% @task.comments.each do |comment| %>
-      <p>
-        <strong> <%= comment.username %> </strong>
-        <%= comment.body %>
-      </p>
+  <hr>
+    <h2>Комментарии</h2>
+      <% @task.comments.each do |comment| %>
+        <p>
+          <strong> <%= comment.username %> </strong>
+          <%= comment.body %>
+        </p>
+      <% end %>
+  <hr>
+
+    <h4>Написать комментарий</h4>
+
+    <%= form_for([@task, @task.comments.build]) do |f|  %>
+
+      <div class="form-inputs">
+        <p>Имя</p>
+        <p> <%= f.text_field(:username) %> </p>
+        <p>Комментарий</p>
+        <p> <%= f.text_area(:body) %> <p>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit("Отправить") %>
+      </div>
     <% end %>
-<hr>
-
-  <h4>Написать комментарий</h4>
-
-  <%= form_for([@task, @task.comments.build]) do |f|  %>
-
-    <div class="form-inputs">
-      <p>Имя</p>
-      <p> <%= f.text_field(:username) %> </p>
-      <p>Комментарий</p>
-      <p> <%= f.text_area(:body) %> <p>
-    </div>
-
-    <div class="form-actions">
-      <%= f.submit("Отправить") %>
-    </div>
-  <% end %>
 <% end %>

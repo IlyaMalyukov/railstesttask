@@ -1,7 +1,9 @@
-<li>
-  <%= link_to user.fullname, user %>
-  <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to "delete", user, method: :delete,
-    data: { confirm: "Удалить этого пользователя?" } %>
-  <% end %> 
-</li>
+<ul class="nav">
+  <li>
+    <%= link_to user.fullname, user, class: "nav-link" %>
+    <% if current_user.admin? && !current_user?(user) %>
+      | <%= link_to "delete", user, method: :delete,
+      data: { confirm: "Удалить этого пользователя?" }, class: "btn btn-link" %>
+    <% end %> 
+  </li>
+</ul>

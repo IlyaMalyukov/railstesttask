@@ -25,11 +25,11 @@
           <%= render 'tasks/replies', task: task %>
         </td>
         
-        <td><%= link_to 'Просмотр', task %></td>
+        <td><%= link_to 'Просмотр', task, class: "btn btn-sm btn-link" %></td>
 
         <% if task.user == current_user %>
-          <td><%= link_to 'Редактировать', edit_task_path(task) %></td>
-          <td><%= link_to 'Удалить', task, method: :delete, data: { confirm: 'Удалить?' } %></td>
+          <td><%= link_to 'Редактировать', edit_task_path(task), class: "btn btn-sm btn-link" %></td>
+          <td><%= link_to 'Удалить', task, method: :delete, data: { confirm: 'Удалить?' }, class: "btn btn-sm btn-link" %></td>
         <% end %>
       </tr>
     <% end %>
