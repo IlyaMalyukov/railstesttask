@@ -1,0 +1,28 @@
+
+<% if current_user %>
+  <hr>
+    <h2>Комментарии</h2>
+      <% @task.comments.each do |comment| %>
+        <p>
+          <strong> <%= comment.username %> </strong>
+          <%= comment.body %>
+        </p>
+      <% end %>
+  <hr>
+
+    <h4>Написать комментарий</h4>
+
+    <%= form_for([@task, @task.comments.build]) do |f|  %>
+
+      <div class="form-inputs">
+        <p>Имя</p>
+        <p> <%= "f.text_field(:username)" %> </p>
+        <p>Комментарий</p>
+        <p> <%= f.text_area(:body) %> <p>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit("Отправить") %>
+      </div>
+    <% end %>
+<% end %>
