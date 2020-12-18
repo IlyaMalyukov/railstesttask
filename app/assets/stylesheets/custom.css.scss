@@ -108,6 +108,12 @@ float: left;
   @include box_sizing;
 }
 
+.nav-link:hover {
+  color: #222;
+}
+
+
+
 /* боковая панель */
 
 aside {

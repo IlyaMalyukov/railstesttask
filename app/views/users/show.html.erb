@@ -8,6 +8,6 @@
     </aside>
     <hr>
     <% if current_user.role == "client" && @user == current_user %>
-      <%= link_to 'Создать задание', new_task_path, class:"btn btn-success" %>
+      <%= link_to 'Создать задание', new_task_path, class:"btn btn-warning" %>
     <% end %>
 </div>
