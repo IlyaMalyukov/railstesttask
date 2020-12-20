@@ -46,6 +46,7 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
+  validates :birthday, presence: true
   validates :address, presence: true
   validates :city, presence: true
   validates :state, presence: true
