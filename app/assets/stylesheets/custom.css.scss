@@ -113,8 +113,9 @@ float: left;
   color: #222;
 }
 
-.jumbotron {
-  width: 100%;
+.tasks__links {
+  display: flex;
+  flex-direction: column;
 }
 
 /* боковая панель */
