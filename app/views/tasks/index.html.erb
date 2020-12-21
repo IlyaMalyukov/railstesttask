@@ -12,13 +12,14 @@
     </tr>
   </thead>
 
-  <tbody>
+
+  <tbody class = "jumbotron">
     <% @tasks.each do |task| %>
       <tr>
         <td><%= task.title %></td>
         <td>
           <%= task.content %>
-          <br>
+          <hr>
           <%= task.user.fullname %> |
           <%= task.created_at %>
           <br>
@@ -33,5 +34,5 @@
         <% end %>
       </tr>
     <% end %>
-  </tbody>
+  </tbody> 
 </table>

@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<div class="jumbotron">
+
   <strong> <%= @task.title %> </strong>
   
 <div class="card">
@@ -22,5 +24,7 @@
     data: { confirm: "Удалить?" }, class: "btn btn-link btn-sm" %> 
     <%= link_to 'Назад', tasks_path, class: "btn btn-link btn-sm" %>
 <% end %>
+
+</div>
 
   <%= render 'comments/comments', task: @task %>
